@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Divyesh Sahay — AI, data science, and intelligent systems portfolio, presented as a flip-through book.">
-<title>Divyesh Sahay · Neural Network Portfolio</title>
+<title>Divyesh Sahay · </title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -65,15 +65,16 @@ main{padding:40px 0 90px}
 .book-shell{perspective:2400px}
 .book{position:relative;background:var(--panel);border:1px solid var(--line);min-height:min(76vh,680px);box-shadow:0 30px 80px rgba(4,6,20,.55);isolation:isolate}
 .book:before{content:"";position:absolute;left:0;top:0;bottom:0;width:26px;background:linear-gradient(90deg,rgba(0,0,0,.4),transparent);pointer-events:none;z-index:7}
-.edge{position:absolute;top:0;bottom:0;width:13%;background:transparent;border:0;cursor:pointer;z-index:6}
-.edge.prev-edge{left:0}.edge.next-edge{right:0}
-.edge:disabled{cursor:default}
+.edge{position:absolute;top:50%;width:44px;height:64px;display:grid;place-items:center;transform:translateY(-50%);border:1px solid var(--line);background:rgba(5,7,17,.68);color:var(--cyan);font-size:1.65rem;line-height:1;cursor:pointer;z-index:8;transition:.2s;backdrop-filter:blur(8px)}
+.edge.prev-edge{left:16px}.edge.next-edge{right:16px}
+.edge:hover:not(:disabled){border-color:var(--cyan);background:rgba(109,227,255,.13);box-shadow:0 0 24px rgba(109,227,255,.24)}
+.edge:disabled{opacity:.28;cursor:not-allowed}
 .page{position:absolute;inset:0;display:none;flex-direction:column;padding:52px clamp(22px,5.5vw,66px);overflow-y:auto;opacity:1;transform:none;transition:transform .55s cubic-bezier(.5,0,.25,1),opacity .5s ease}
 .page.active{display:flex}
-.page.exit-left{display:flex;transform-origin:left center;transform:rotateY(-92deg) translateX(-8%);opacity:0}
-.page.exit-right{display:flex;transform-origin:right center;transform:rotateY(92deg) translateX(8%);opacity:0}
-.page.enter-right{display:flex;transform:translateX(56px);opacity:0}
-.page.enter-left{display:flex;transform:translateX(-56px);opacity:0}
+.page.exit-left{display:flex;transform-origin:left center;transform:rotateY(-105deg) scale(.985);opacity:0}
+.page.exit-right{display:flex;transform-origin:right center;transform:rotateY(105deg) scale(.985);opacity:0}
+.page.enter-right{display:flex;transform-origin:right center;transform:rotateY(78deg);opacity:0}
+.page.enter-left{display:flex;transform-origin:left center;transform:rotateY(-78deg);opacity:0}
 .page:focus{outline:none}
 .page-inner{max-width:720px;margin:0 auto;width:100%}
 .page-eyebrow{margin:0 0 14px}
@@ -121,11 +122,6 @@ main{padding:40px 0 90px}
 .contact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 
 /* controls */
-.book-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px}
-.page-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:1px solid var(--line);background:transparent;color:var(--ink);font:600 .75rem "Space Grotesk",sans-serif;cursor:pointer;transition:.2s}
-.page-btn:hover:not(:disabled){border-color:var(--cyan);color:var(--cyan)}
-.page-btn:disabled{opacity:.32;cursor:not-allowed}
-.page-counter{font:500 .7rem "DM Mono",monospace;letter-spacing:.1em;color:var(--muted);min-width:70px;text-align:center}
 
 footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var(--muted);font:400 .65rem "DM Mono",monospace;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
@@ -144,6 +140,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
   .edu-card{display:block}
   .edu-score{text-align:left;margin-top:20px}
   .page{padding:40px 20px}
+  .edge{width:38px;height:54px;font-size:1.4rem}
+  .edge.prev-edge{left:8px}.edge.next-edge{right:8px}
   footer{display:block;line-height:2}
 }
 @media(prefers-reduced-motion:reduce){
@@ -163,10 +161,10 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
     <div class="nav-right">
       <ul id="primary-menu">
         <li><button type="button" data-goto="1">Contents</button></li>
-        <li><button type="button" data-goto="8">Profile</button></li>
-        <li><button type="button" data-goto="9">Skills</button></li>
-        <li><button type="button" data-goto="10">Education</button></li>
-        <li><button type="button" data-goto="11">Contact</button></li>
+        <li><button type="button" data-goto="2">Profile</button></li>
+        <li><button type="button" data-goto="3">Skills</button></li>
+        <li><button type="button" data-goto="4">Education</button></li>
+        <li><button type="button" data-goto="12">Contact</button></li>
         <li><a class="mono" href="https://github.com/Div-doin" target="_blank" rel="noreferrer">GitHub ↗<span class="sr-only"> (opens in new tab)</span></a></li>
       </ul>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
@@ -185,8 +183,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
     <section class="page active" id="page-0" data-title="Cover" aria-label="Page 1 of 12: Cover" tabindex="-1">
       <div class="page-inner cover-grid">
         <div>
-          <div class="cover-status mono"><span class="node-mark"></span> Neural network / online</div>
-          <div class="mono cover-tag">Portfolio · Vol. 01</div>
+          <div class="cover-status mono"><span class="node-mark"></span> Available to hire </div>
+          <div class="mono cover-tag">Portfolio </div>
           <h1 class="cover-title">DIVYESH <span class="gradient">SAHAY</span></h1>
           <p class="cover-detail">AI, data science, and intelligent systems — a Computer Science &amp; Engineering (Data Science) student exploring applied AI, from accessible edge vision to responsible, explainable decision systems.</p>
           <p class="cover-facts">Bengaluru, India · RNS Institute of Technology · CGPA 8.9</p>
@@ -214,17 +212,29 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
         </div>
         <h3 class="section-label mono">Jump to a page</h3>
         <div class="toc">
-          <button type="button" class="toc-row" data-goto="2"><span>See For You<span class="tag">Node 01 · Accessibility AI</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="3"><span>FraudShield<span class="tag">Node 02 · ML Systems</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="4"><span>Aadhaar Fraud Intelligence<span class="tag">Node 03 · Data Intelligence</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="5"><span>Bias-Aware Loan Decisioning<span class="tag">Node 04 · Responsible AI</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="6"><span>Blood Diagnosis<span class="tag">Node 05 · Health ML</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="7"><span>Student Database Management<span class="tag">Node 06 · Full-Stack</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="8"><span>Profile<span class="tag">How I approach the problem</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="9"><span>Skills<span class="tag">Technical vocabulary</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="10"><span>Education<span class="tag">Foundation</span></span><span class="arrow" aria-hidden="true">→</span></button>
-          <button type="button" class="toc-row" data-goto="11"><span>Contact<span class="tag">Let's connect</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="2"><span>Profile<span class="tag">How I approach the problem</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="3"><span>Skills<span class="tag">Technical vocabulary</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="4"><span>Education<span class="tag">Foundation</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="5"><span>My Projects<span class="tag">Selected work · Knowledge in practice</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="6"><span>See For You<span class="tag">Node 01 · Accessibility AI</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="7"><span>Bias-Aware Loan Decisioning<span class="tag">Node 02 · Responsible AI</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="8"><span>FraudShield<span class="tag">Node 03 · ML Systems</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="9"><span>Aadhaar Fraud Intelligence<span class="tag">Node 04 · Data Intelligence</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="10"><span>Blood Diagnosis<span class="tag">Node 05 · Health ML</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="11"><span>Student Database Management<span class="tag">Node 06 · Full-Stack</span></span><span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="toc-row" data-goto="12"><span>Contact<span class="tag">Let's connect</span></span><span class="arrow" aria-hidden="true">→</span></button>
         </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS INTRO — repositioned with the book sequence below -->
+    <section class="page" id="projects-intro" data-title="My Projects" tabindex="-1">
+      <div class="page-inner">
+        <div class="mono page-eyebrow">Layer 05 / Applied knowledge</div>
+        <h2 class="page-title">My <span class="gradient">Projects</span></h2>
+        <p class="page-lede">These projects represent the knowledge I have built across AI, data science, and product engineering — turning ideas into practical, responsible systems.</p>
+        <h3 class="section-label mono">Explore the selected systems</h3>
+        <button type="button" class="button" data-goto="6">View the projects <span aria-hidden="true">→</span></button>
       </div>
     </section>
 
@@ -250,7 +260,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
     <!-- PAGE 3 — PROJECT: FRAUDSHIELD -->
     <section class="page" id="page-3" data-title="FraudShield" aria-label="Page 4 of 12: FraudShield" tabindex="-1">
       <div class="page-inner">
-        <div class="mono page-eyebrow">Node 02 · ML Systems</div>
+        <div class="mono page-eyebrow">Node 03 · ML Systems</div>
         <h2 class="page-title">FraudShield</h2>
         <p class="page-lede">A real-time fraud-detection system that scores transactions the moment they happen, and explains why a transaction was flagged instead of leaving reviewers to guess.</p>
         <h3 class="section-label mono">Highlights</h3>
@@ -269,7 +279,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
     <!-- PAGE 4 — PROJECT: AADHAAR -->
     <section class="page" id="page-4" data-title="Aadhaar Fraud Intelligence" aria-label="Page 5 of 12: Aadhaar Fraud Intelligence" tabindex="-1">
       <div class="page-inner">
-        <div class="mono page-eyebrow">Node 03 · Data Intelligence</div>
+        <div class="mono page-eyebrow">Node 04 · Data Intelligence</div>
         <h2 class="page-title">Aadhaar Fraud Intelligence</h2>
         <p class="page-lede">A regional, privacy-preserving risk-analysis tool that turns aggregate enrolment, demographic, and biometric signals into a ranked list of where to audit next.</p>
         <h3 class="section-label mono">Highlights</h3>
@@ -288,7 +298,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
     <!-- PAGE 5 — PROJECT: BIAS-AWARE LOAN -->
     <section class="page" id="page-5" data-title="Bias-Aware Loan Decisioning" aria-label="Page 6 of 12: Bias-Aware Loan Decisioning" tabindex="-1">
       <div class="page-inner">
-        <div class="mono page-eyebrow">Node 04 · Responsible AI</div>
+        <div class="mono page-eyebrow">Node 02 · Responsible AI</div>
         <h2 class="page-title">Bias-Aware Loan Decisioning</h2>
         <p class="page-lede">A collaborative NLP pipeline built to keep automated loan decisions explainable and to catch bias before it reaches an applicant.</p>
         <h3 class="section-label mono">Highlights</h3>
@@ -405,19 +415,14 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
       </div>
     </section>
 
-    <button type="button" class="edge prev-edge" id="edge-prev" aria-hidden="true" tabindex="-1"></button>
-    <button type="button" class="edge next-edge" id="edge-next" aria-hidden="true" tabindex="-1"></button>
+    <button type="button" class="edge prev-edge" id="edge-prev" aria-label="Previous page">‹<span class="sr-only">Previous page</span></button>
+    <button type="button" class="edge next-edge" id="edge-next" aria-label="Next page">›<span class="sr-only">Next page</span></button>
   </div>
 
-  <div class="book-controls">
-    <button type="button" class="page-btn" id="prev-btn">← Prev</button>
-    <span class="page-counter" id="page-counter">1 / 12</span>
-    <button type="button" class="page-btn" id="next-btn">Next →</button>
-  </div>
 </div>
 </main>
 
-<div class="wrap"><footer><span>© 2026 DIVYESH SAHAY</span><span>NEURAL NETWORK PORTFOLIO</span></footer></div>
+<div class="wrap"><footer><span>© 2026 DIVYESH SAHAY</span><a class="button alt" href="https://www.linkedin.com/in/divyesh-sahay/" target="_blank" rel="noreferrer">LinkedIn ↗<span class="sr-only"> (opens in new tab)</span></a></footer></div>
 
 <script>
 (() => {
@@ -483,27 +488,35 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
 
 (() => {
   const book = document.getElementById('book');
+  const desiredOrder = [
+    'Cover', 'Contents', 'Profile', 'Skills', 'Education', 'My Projects',
+    'See For You', 'Bias-Aware Loan Decisioning', 'FraudShield',
+    'Aadhaar Fraud Intelligence', 'Blood Diagnosis', 'Student Database Management', 'Contact'
+  ];
+  const pageByTitle = new Map(Array.from(book.querySelectorAll('.page')).map(page => [page.dataset.title, page]));
+  const firstControl = document.getElementById('edge-prev');
+  desiredOrder.forEach(title => book.insertBefore(pageByTitle.get(title), firstControl));
   const pages = Array.from(book.querySelectorAll('.page'));
   const total = pages.length;
   let currentIndex = 0, animating = false;
 
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
+  pages.forEach((page, index) => {
+    page.id = 'page-' + index;
+    page.setAttribute('aria-label', 'Page ' + (index + 1) + ' of ' + total + ': ' + page.dataset.title);
+    page.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+  });
+
   const edgePrev = document.getElementById('edge-prev');
   const edgeNext = document.getElementById('edge-next');
-  const counter = document.getElementById('page-counter');
   const status = document.getElementById('page-status');
 
   function syncControls(){
-    counter.textContent = (currentIndex+1) + ' / ' + total;
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === total-1;
     edgePrev.disabled = currentIndex === 0;
     edgeNext.disabled = currentIndex === total-1;
     const title = pages[currentIndex].dataset.title;
     status.textContent = 'Page ' + (currentIndex+1) + ' of ' + total + ': ' + title;
-    prevBtn.setAttribute('aria-label', currentIndex===0 ? 'Previous page (unavailable)' : 'Previous page: ' + pages[currentIndex-1].dataset.title);
-    nextBtn.setAttribute('aria-label', currentIndex===total-1 ? 'Next page (unavailable)' : 'Next page: ' + pages[currentIndex+1].dataset.title);
+    edgePrev.setAttribute('aria-label', currentIndex===0 ? 'Previous page (unavailable)' : 'Previous page: ' + pages[currentIndex-1].dataset.title);
+    edgeNext.setAttribute('aria-label', currentIndex===total-1 ? 'Next page (unavailable)' : 'Next page: ' + pages[currentIndex+1].dataset.title);
   }
 
   function turn(newIndex, dir){
@@ -542,8 +555,6 @@ footer{border-top:1px solid var(--line);padding:26px 0;margin-top:20px;color:var
     turn(newIndex, newIndex > currentIndex ? 1 : -1);
   }
 
-  prevBtn.addEventListener('click', () => goTo(currentIndex-1));
-  nextBtn.addEventListener('click', () => goTo(currentIndex+1));
   edgePrev.addEventListener('click', () => goTo(currentIndex-1));
   edgeNext.addEventListener('click', () => goTo(currentIndex+1));
 
